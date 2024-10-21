@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Add Recipe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <img src="{% static 'recipes/images/kitchen-tile.jpg' %}" 
+    alt="Background image" 
+    class="fullscreen-bg">
+
+    <nav>
+        <button><a href="{% url 'recipes:list' %}">View All Recipes</a></button>
+        <button><a href="{% url 'recipes:add_recipe' %}">Add Recipe</a></button>
+        <button><a href="{% url 'recipes:recipe_search' %}">Search Recipes</a></button>
+        <button><a href="{% url 'recipes:about_me' %}">About Me</a></button>
+        <button><a href="{% url 'logout' %}">Logout</a></button>
+    </nav>
+
+    <h1>Add a New Recipe</h1>
+ 
+    <div class="content-wrapper">
+        <form action="" method="POST" enctype="multipart/form-data" class="search-form">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                {{ form.cooking_time.label_tag }}
+                {{ form.cooking_time }}
+            </div>
+            <div class="form-group">
+                {{ form.ingredients.label_tag }}
+                {{ form.ingredients }}
+            </div>
+            <div class="form-group">
+                {{ form.pic.label_tag }}
+                {{ form.pic }}
+            </div>
+            <button type="submit" class="btn-submit">Add Recipe</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

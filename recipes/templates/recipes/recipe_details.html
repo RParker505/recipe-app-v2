@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recipe Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <img src="{% static 'recipes/images/kitchen-tile.jpg' %}" 
+    alt="Background image" 
+    class="fullscreen-bg">
+
+    <nav>
+        <button><a href="{% url 'recipes:list' %}">View All Recipes</a></button>
+        <button><a href="{% url 'recipes:add_recipe' %}">Add Recipe</a></button>
+        <button><a href="{% url 'recipes:recipe_search' %}">Search Recipes</a></button>
+        <button><a href="{% url 'recipes:about_me' %}">About Me</a></button>
+        <button><a href="{% url 'logout' %}">Logout</a></button>
+    </nav>
+
+    <h2>Recipe Details</h2>
+
+    <div class="content-wrapper">
+        <div class="recipe-list">
+            <div class="recipe-card">
+                <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }}" class="recipe-image">
+                <div class="recipe-info">
+                    <h3>Name: {{ recipe.name }}</h3>
+                    <b>Cooking Time:</b> {{recipe.cooking_time}} minutes<br>
+                    <br>
+                    <b>Difficulty:</b> {{recipe.calculate_difficulty}}<br>
+                    <br>
+                    <b>Ingredients:</b> {{recipe.ingredients}}<br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recipe App Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <img src="{% static 'recipes/images/kitchen-tile.jpg' %}" 
+    alt="Background image" 
+    class="fullscreen-bg">
+    
+    <h1>Welcome to The Recipe App</h1>
+    
+    <div class="content-wrapper">
+        <img src="{% static 'recipes/images/recipe-ingredients.jpg' %}" alt="cutting board and ingredients" width="500px" class="recipe-img-home">
+        <h3>Log in to start cooking!</h3>
+        <!-- Tells Django to load the URL with the name “login” when the user clicks -->
+        <a href="{%url 'login' %}"> Login </a>
+    </div>
+
+</body>
+
+</html>

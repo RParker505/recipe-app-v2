@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recipe App Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <img src="{% static 'recipes/images/kitchen-tile.jpg' %}" 
+    alt="Background image" 
+    class="fullscreen-bg">
+
+    <h1>Log In</h1>          {% comment %} print heading {% endcomment %}
+
+    {% comment %} check for error message {% endcomment %}
+    {% if error_message %}
+        <div class="error-message">{{error_message}}</div>
+    {% endif %}
+
+    {% comment %} print form {% endcomment %}
+    <form action="" method="POST" class="login-form" >
+    {% comment %} add Django security token {% endcomment %}
+    {% csrf_token %}   
+
+    {% comment %} print form received from view  {% endcomment %}
+    {{form.as_p}} <!-- Assuming the form is rendered as paragraphs -->          
+
+    {% comment %} add button {% endcomment %}
+    <button type="submit" class="login-btn" >Login</button>
+    </form>
+
+</body>
+
+</html>

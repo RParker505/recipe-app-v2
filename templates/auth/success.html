@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recipe App Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <img src="{% static 'recipes/images/kitchen-tile.jpg' %}" 
+    alt="Background image" 
+    class="fullscreen-bg">
+    
+    <h1>You've Successfully Logged Out</h1>
+
+    <h2>Come back soon!</h2>
+    
+    <div class="content-wrapper">
+        <!-- Tells Django to load the URL with the name “login” when the user clicks -->
+        <a href="{%url 'login' %}"> Log Back In </a>
+        <br>
+        <br>
+        <a href="/"> Home </a>
+    </div>
+
+</body>
+
+</html>

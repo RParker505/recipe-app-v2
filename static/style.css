@@ -1,0 +1,489 @@
+html, body {
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove any padding */
+    width: 100%; /* Ensure the body takes up the full width */
+    height: 100%; /* Ensure the body takes up the full height */
+    /* overflow-x: hidden; Prevent horizontal scrolling */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Ensure that child elements can be layered on top */
+    font-size: 1.5rem;
+    color: rgb(47, 79, 79);
+    min-height: 100vh; /* Ensure body takes up at least the full viewport height */
+}
+
+.fullscreen-bg {
+    position: fixed; /* Make the image fixed in the background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire area */
+    z-index: -1; /* Place the image behind other content */
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 1200px; /* Optionally limit the width of the content */
+    padding: 20px;
+    text-align: center; /* Center the content */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center child elements horizontally */
+}
+
+h1,
+h2,
+h3 {
+    color: rgb(47, 79, 79);
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+  font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.6rem; /* For h2 size, adjust this value as needed */
+}
+h3 {
+    font-size: 1.8rem; /* For h3 size, adjust this value as needed */
+}
+
+.recipe-img-home {
+    border-radius: 15px;
+}
+
+/* Styles for the login link */
+a {
+    display: inline-block; /* Turn the link into a block element */
+    padding: 10px 20px; /* Add some padding */
+    margin-top: 20px; /* Space above the button */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2rem; /* Make the text a bit larger */
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif; /* Match the font with other elements */
+    color: white; /* White text color */
+    background-color: rgb(47, 79, 79); /* Match the main color of the page */
+    border-radius: 25px; /* Rounded corners for a modern look */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+}
+
+/* Hover effect */
+a:hover {
+    background-color: rgb(35, 64, 64); /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight upward movement */
+}
+
+/* Active effect */
+a:active {
+    background-color: rgb(47, 79, 79); /* Original color on click */
+    transform: translateY(1px); /* Slight downward movement on click */
+}
+
+/* Styles for the login form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid rgb(47, 79, 79);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+    color: rgb(47, 79, 79);
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: rgb(35, 64, 64); /* Darker border on focus */
+}
+
+.login-btn {
+    background-color: rgb(47, 79, 79);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: rgb(35, 64, 64);
+    transform: translateY(-2px);
+}
+
+.login-btn:active {
+    background-color: rgb(47, 79, 79);
+    transform: translateY(1px);
+}
+
+/* Style for error messages */
+.error-message {
+    color: red;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
+.recipe-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between each card */
+    margin-top: 20px;
+}
+
+.recipe-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
+    padding: 20px;
+    width: 600px; /* Adjust width of each card */
+    max-width: 100%;
+}
+
+.recipe-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px; /* Slight rounding on the image */
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.recipe-info h2 {
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+    color: #2F4F4F;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Styles for the logout link */
+a {
+    display: inline-block; /* Turn the link into a block element */
+    padding: 10px 20px; /* Add some padding */
+    margin-top: 20px; /* Space above the button */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2rem; /* Make the text a bit larger */
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif; /* Match the font with other elements */
+    color: white; /* White text color */
+    background-color: rgb(47, 79, 79); /* Match the main color of the page */
+    border-radius: 25px; /* Rounded corners for a modern look */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+}
+
+/* Hover effect */
+a:hover {
+    background-color: rgb(35, 64, 64); /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight upward movement */
+}
+
+/* Active effect */
+a:active {
+    background-color: rgb(47, 79, 79); /* Original color on click */
+    transform: translateY(1px); /* Slight downward movement on click */
+}
+
+.logout-btn {
+    position: absolute;
+    top: 20px; /* Adjusts the top position */
+    right: 20px; /* Adjusts the right position */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgb(47, 79, 79);
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: rgb(35, 64, 64);
+    transform: translateY(-2px);
+}
+
+.logout-btn:active {
+    background-color: rgb(47, 79, 79);
+    transform: translateY(1px);
+}
+
+/* Styles for the search button */
+.search-btn {
+    display: inline-block; /* Turn the link into a block element */
+    padding: 10px 20px; /* Add some padding */
+    margin-top: 20px; /* Space above the button */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2rem; /* Match the font size */
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif; /* Font family */
+    color: white; /* White text color */
+    background-color: rgb(47, 79, 79); /* Match the background color */
+    border-radius: 25px; /* Rounded corners for a modern look */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+    text-align: center; /* Center the text */
+    margin-bottom: 20px; /* Add some space at the bottom */
+}
+
+/* Hover effect for the search button */
+.search-btn:hover {
+    background-color: rgb(35, 64, 64); /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight upward movement */
+}
+
+/* Active effect for the search button */
+.search-btn:active {
+    background-color: rgb(47, 79, 79); /* Original color on click */
+    transform: translateY(1px); /* Slight downward movement on click */
+}
+
+/* Form styling */
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add spacing between form fields */
+    background-color: #f8f9fa; /* Light background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 600px; /* Adjust width to match your cards */
+    max-width: 100%;
+    margin-bottom: 40px; /* Space between the form and recipe list */
+    
+    /* Center the form on the page */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left; /* Align labels to the left */
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    color: #2F4F4F;
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+
+.form-control {
+    padding: 10px;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: rgb(47, 79, 79); /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+}
+
+.btn-submit {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: #2F4F4F;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-clear {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: #483D8B;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-clear:hover {
+    background-color: #332C63;
+}
+
+.btn-submit:hover {
+    background-color: #1e2e2e;
+}
+
+.btn-submit:active {
+    background-color: rgb(47, 79, 79);
+    transform: translateY(1px);
+}
+
+.recipe-table {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+table.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.table th, table.table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+table.table-striped tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center; /* Center the chart horizontally */
+    margin-top: 20px;
+}
+
+.chart-container img {
+    max-width: 100%; /* Ensures responsiveness */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.add-recipe-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.add-recipe-form button {
+    background-color: rgb(47, 79, 79);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-recipe-form button:hover {
+    background-color: rgb(35, 64, 64);
+}
+
+/* About Me page styles */
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.bio {
+    font-size: 1.2rem;
+    color: #2f4f4f;
+    margin-bottom: 30px;
+}
+
+.skills-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2rem;
+    color: #2f4f4f;
+}
+
+.skills-list li {
+    margin-bottom: 10px;
+}
+
+.portfolio-link {
+    margin-top: 30px;
+}
+
+.portfolio-link a {
+    font-size: 1.2rem;
+    color: white;
+    background-color: #2f4f4f;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.portfolio-link a:hover {
+    background-color: #1e2e2e;
+}
+
+/* Navigation styles */
+nav {
+    display: flex; /* Display buttons in a row */
+    gap: 10px; /* Add some space between the buttons */
+}
+
+nav button {
+    cursor: pointer; /* Make the button cursor appear as a pointer */
+}
+
+nav button {
+    background: none; /* Remove button background */
+    border: none; /* Remove button border */
+    padding: 0; /* Remove any default padding */
+    margin: 0; /* Remove any default margin */
+}
+
+nav button a {
+    display: inline-block; /* Keep the anchor link styling */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+    color: white;
+    background-color: rgb(47, 79, 79); /* Match the main color */
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for buttons */
+nav button a:hover {
+    background-color: rgb(35, 64, 64); /* Darker shade on hover */
+    transform: translateY(-2px);
+}
+
+/* Active effect for buttons */
+nav button a:active {
+    background-color: rgb(47, 79, 79); /* Original color on click */
+    transform: translateY(1px);
+}
